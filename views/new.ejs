@@ -1,0 +1,12 @@
+<% include partials/header %>
+
+<h1>Create a New Repository</h1>
+
+<form action="/repositories" method="POST">
+	<input type="text" name="name" placeholder="name">
+	<input type="text" name="description" placeholder="description">
+	<input type="text" name="author" placeholder="author">
+	<button>Submit!</button>
+</form>
+
+<% include partials/footer %>

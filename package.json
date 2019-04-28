@@ -1,0 +1,28 @@
+{
+  "name": "ateliware-test",
+  "version": "1.0.0",
+  "description": "Application that lists GitHub repositories and its descriptions",
+  "main": "app.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/staytr00/ateliware-test.git"
+  },
+  "author": "Ana Laura de Araujo",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/staytr00/ateliware-test/issues"
+  },
+  "homepage": "https://github.com/staytr00/ateliware-test#readme",
+  "dependencies": {
+    "body-parser": "^1.19.0",
+    "ejs": "^2.6.1",
+    "express": "^4.16.4",
+    "github-api": "^3.2.0",
+    "mongoose": "^5.5.4",
+    "mysql": "^2.17.1",
+    "request": "^2.88.0"
+  }
+}

@@ -129,4 +129,4 @@ app.get("/all-repositories", function(req, res) {
 	res.render("all-repositories", {repositories:repositories});
 });
 
-app.listen(process.env.PORT || port);
+app.listen(process.env.PORT, process.env.IP);

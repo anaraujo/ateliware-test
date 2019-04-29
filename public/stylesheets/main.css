@@ -1,16 +1,18 @@
-html body .container .row {
+html body .container .square-row {
   bottom: 0;
   margin-top: 20px; }
-  html body .container .row .square-parent {
-    text-align: center; }
-    html body .container .row .square-parent .square {
+  html body .container .square-row .square-col {
+    text-align: center;
+    height: 100%; }
+    html body .container .square-row .square-col .square {
       display: inline-block;
-      height: 250px;
-      max-height: 250px;
+      height: 100%;
       width: 250px;
       max-width: 250px;
       margin-bottom: 20px; }
-  html body .container .row .modal-body .col-4, html body .container .row .modal-body .col-6 {
+  html body .container .square-row .card {
+    margin-bottom: 15px; }
+  html body .container .square-row .modal-body .col-4, html body .container .square-row .modal-body .col-6 {
     text-align: center; }
 
 html, body, .container {
@@ -36,7 +38,10 @@ img {
 .sql-color {
   background: #0F3674; }
 
-.c-color, .css-color, .html-color, .js-color, .sql-color {
+.git-color {
+  background: black; }
+
+.c-color, .css-color, .html-color, .js-color, .sql-color, .git-color {
   color: white; }
 
 /*# sourceMappingURL=main.css.map */

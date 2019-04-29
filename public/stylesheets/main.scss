@@ -6,21 +6,25 @@ html {
 		// background: linear-gradient(to bottom, #ffdde1, #C17A88); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
 
 		.container {
-			.row {
+			.square-row {
 				bottom:0;
 				margin-top: 20px;
 
-				.square-parent {
+				.square-col {
 					text-align: center;
+					height: 100%;
 
 					.square {
 						display: inline-block;
-						height: 250px;
-						max-height: 250px;
+						height: 100%;
 						width: 250px;
 						max-width: 250px;
 						margin-bottom: 20px;
 					}
+				}
+
+				.card {
+					margin-bottom: 15px;
 				}
 
 				.modal-body {
@@ -64,7 +68,11 @@ img {
 	background: #0F3674;
 }
 
-.c-color, .css-color, .html-color, .js-color, .sql-color {
+.git-color {
+	background: black;
+}
+
+.c-color, .css-color, .html-color, .js-color, .sql-color, .git-color {
 	color: white;
 }
 

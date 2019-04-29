@@ -1,27 +1,107 @@
 <% include ./partials/header %>
 
 	<div class="container">
-		<header class="jumbotron">
+		<header class="jumbotron git-color">
 			<div class="container">
-				<h1>Welcome to Git Repositories!</h1>
-				<p>View some of the repositories here</p>
+				<h1>Git Repositories</h1>
+				<p>Starred repositories for all five languages</p>
+				<a class="btn btn-light btn-lg" href="/" role="button">Back to Home</a>
 			</div>	
 		</header>
 
-		<div class="row" style="display: flex; flex-wrap: wrap;">
-			<% repositories.forEach(function(repository) { %>
-				<div class="col-md-3 col-sm-6">
-					<div class="card" style="">
-						<div class="card-body">
-							<img src="/images/<%= repository.language %>.png" class="card-img-top">
-						    <h5 class="card-title"><%= repository.name %></h5>
-						    <h6 class="card-subtitle mb-2 text-muted"><%= repository.author %></h6>
-						    <p class="card-text"><%= repository.language %></p>
-						    <a href="<%= repository.url %>" class="btn btn-dark">Repository</a>
-						    <a href="#" class="btn btn-dark">Details</a>
-						 </div>
-					</div>
-				</div>	
+		<div class="row">
+			<% repositories.forEach(function(repository, i) { %>
+				<% if (JSON.stringify(repository.language) != JSON.stringify('null')) { %>
+					<div class="col-md-3 col-sm-6 d-flex flex-wrap">
+						<div class="card">
+							<div class="card-body">
+								<img src="/images/<%= repository.language %>.png" class="card-img-top">
+							    <h5 class="card-title"><%= repository.name %></h5>
+							    <h6 class="card-subtitle mb-2 text-muted"><%= repository.author %></h6>
+								<button type="button" class="btn btn-dark" data-toggle="modal" data-target="#modalDetails<%= i %>">
+									Details
+								</button>
+
+								<!-- Modal -->
+								<div class="modal fade" id="modalDetails<%= i %>" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+									<div class="modal-dialog modal-dialog-centered" role="document">
+										<div class="modal-content">
+											<div class="modal-header">
+												<h5 class="modal-title" id="exampleModalCenterTitle"><%= repository.name %></h5>
+												<button type="button" class="close" data-dismiss="modal" aria-label="Close">
+													<span aria-hidden="true">&times;</span>
+												</button>
+											</div>
+											<div class="modal-body">
+												<div class="row">
+													<div class="col-12">
+														<p>
+															<b>Description:</b>
+															<%= repository.description %>
+														</p>
+													</div>	
+													<div class="col-12">
+														<p>
+															<b>Author:</b>
+															<%= repository.author %>
+														</p>
+													</div>	
+													<div class="col-12">
+														<p>
+															<b>Language:</b>
+															<%= repository.language %>
+														</p>
+													</div>	
+													<div class="col-12">	
+														<p>
+															<b>Size:</b>
+															<%= repository.size %>
+														</p>
+													</div>
+												</div>			
+												<div class="row">
+													<div class="col-4">
+														<p>
+															<%= repository.forks %> forks
+														</p>
+													</div>	
+													<div class="col-4">
+														<p>
+															<%= repository.issues %> issues
+														</p>
+													</div>	
+													<div class="col-4">
+														<p>
+															<%= repository.watchers %> watchers
+														</p>
+													</div>
+												</div>	
+												<div class="row">
+													<div class="col-6">
+														<p>
+															<b>Created:</b>
+															<%= repository.created.slice(0,10) %>
+														</p>
+													</div>	
+													<div class="col-6">
+														<p>
+															<b>Updated:</b>
+															<%= repository.updated.slice(0,10) %>
+
+														</p>
+													</div>
+												</div>		
+											</div>
+											<div class="modal-footer justify-content-start">
+												<a href="<%= repository.url %>" class="btn btn-secondary btn-lg active" role="button" aria-pressed="true">Go to the repository</a>
+											</div>
+										</div>
+									</div>
+								</div>
+							 </div>
+						</div>
+					</div>	
+				<% } %>	
 			<% }); %>
 		</div>	  
 	</div>	

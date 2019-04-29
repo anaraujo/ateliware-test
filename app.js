@@ -17,50 +17,50 @@ var connection = mysql.createConnection({
 var request = require('request');
 var languages = ['C', 'Javascript', 'CSS', 'HTML', 'SQL'];
 
-function getAPI(language) {
-	var options = {
-	  url: 'https://api.github.com/search/repositories?sort=stars&order=desc&q=language:'+language,
-	  headers: {
-	    'User-Agent': 'Git Repositories'
-	  }
-	};
+// function getAPI(language) {
+// 	var options = {
+// 	  url: 'https://api.github.com/search/repositories?sort=stars&order=desc&q=language:'+language,
+// 	  headers: {
+// 	    'User-Agent': 'Git Repositories'
+// 	  }
+// 	};
 	 
-	function callback(error, response, body) {
-		if (!error && response.statusCode == 200) {
-		    var info = JSON.parse(body);
-		    info.items.forEach(function(item) {
-		    	if (item.description != null) {
-		    		item.description = item.description.replace("\'", "").replace(/[^\x00-\x7F]/g, "");
-		    	}
-		    	var s = 'INSERT INTO repositories(name, url, author, description, created, updated, size, language, forks, issues, watchers) VALUES (\''
-		    			+item.name+'\',\''
-		    			+item.svn_url+'\',\''
-		    			+item.owner.login+'\',\''
-		    			+item.description+'\',\''
-		    			+item.created_at+'\',\''
-		    			+item.updated_at+'\','
-		    			+item.size+',\''
-		    			+item.language+'\','
-		    			+item.forks+','
-		    			+item.open_issues+','
-		    			+item.watchers+')';
-				connection.query(s, function (error, results, fields) {
-					if (error){
-						console.log(s);
-						throw error;
+// 	function callback(error, response, body) {
+// 		if (!error && response.statusCode == 200) {
+// 		    var info = JSON.parse(body);
+// 		    info.items.forEach(function(item) {
+// 		    	if (item.description != null) {
+// 		    		item.description = item.description.replace(/'/g, "").replace(/[^\x00-\x7F]/g, "");
+// 		    	}
+// 		    	var s = 'INSERT INTO repositories(name, url, author, description, created, updated, size, language, forks, issues, watchers) VALUES (\''
+// 		    			+item.name+'\',\''
+// 		    			+item.svn_url+'\',\''
+// 		    			+item.owner.login+'\',\''
+// 		    			+item.description+'\',\''
+// 		    			+item.created_at+'\',\''
+// 		    			+item.updated_at+'\','
+// 		    			+item.size+',\''
+// 		    			+item.language+'\','
+// 		    			+item.forks+','
+// 		    			+item.open_issues+','
+// 		    			+item.watchers+')';
+// 				connection.query(s, function (error, results, fields) {
+// 					if (error){
+// 						console.log(s);
+// 						throw error;
 						
-					} 
-				});
-			});
-		}		
-	};
+// 					} 
+// 				});
+// 			});
+// 		}		
+// 	};
 
-	request(options, callback);
-};
+// 	request(options, callback);
+// };
 
-languages.forEach(function(language) {
-	getAPI(language);
-});
+// languages.forEach(function(language) {
+// 	getAPI(language);
+// });
 
 var repositories = []
 
@@ -85,6 +85,7 @@ connection.query(p, function (error, results, fields) {
 			var newRepository = {	name: name, 
 									url: url, 
 									author: author, 
+									description: description,
 									created: created, 
 									updated: updated,
 									size: size,
@@ -93,7 +94,7 @@ connection.query(p, function (error, results, fields) {
 									issues: issues,
 									watchers: watchers
 								};
-			console.log(newRepository);
+		 	
 			repositories.push(newRepository);
 		}	
 	});	

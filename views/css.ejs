@@ -5,15 +5,15 @@
 			<div class="container">
 				<h1>Git Repositories | CSS</h1>
 				<p>Starred repositories for this language</p>
+				<a class="btn btn-light btn-lg" href="/" role="button">Back to Home</a>
 			</div>	
 		</header>
 
-		<div class="row" style="display: flex; flex-wrap: wrap;">
+		<div class="row">
 			<% repositories.forEach(function(repository, i) { %>
 				<% if (JSON.stringify(repository.language) == JSON.stringify('CSS')) { %>
-					<%	console.log(i);%>
-					<div class="col-md-3 col-sm-6">
-						<div class="card" style="margin-bottom: 15px;">
+					<div class="col-md-3 col-sm-6 d-flex flex-wrap">
+						<div class="card">
 							<div class="card-body">
 								<img src="/images/<%= repository.language %>.png" class="card-img-top">
 							    <h5 class="card-title"><%= repository.name %></h5>

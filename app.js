@@ -1,5 +1,3 @@
-const PORT = process.env.PORT || 3000
-
 var express = require("express");
 var app = express();
 app.use(express.static('public'));
@@ -130,19 +128,6 @@ app.get("/sql", function(req, res) {
 app.get("/all-repositories", function(req, res) {
 	res.render("all-repositories", {repositories:repositories});
 });
-
-// app.post ("/repositories", function(req, res) {
-// 	var name = req.body.name;
-// 	// var description = req.body.description;
-// 	var author = req.body.author;
-// 	var newRepository = {name: name, author: author};
-// 	repositories.push(newRepository);
-// 	res.redirect("/repositories");
-// });
-
-// app.get("/repositories/new", function (req, res) {
-// 	res.render("new.ejs");
-// });
 
 app.listen(PORT, process.env.IP, function() {
 	console.log("The server has started!")

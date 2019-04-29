@@ -1,0 +1,71 @@
+html {
+
+	body {
+		//background: #F5D9D5; 
+		// background: -webkit-linear-gradient(to bottom, #ffdde1, #C17A88);  /* Chrome 10-25, Safari 5.1-6 */
+		// background: linear-gradient(to bottom, #ffdde1, #C17A88); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+
+		.container {
+			.row {
+				bottom:0;
+				margin-top: 20px;
+
+				.square-parent {
+					text-align: center;
+
+					.square {
+						display: inline-block;
+						height: 250px;
+						max-height: 250px;
+						width: 250px;
+						max-width: 250px;
+						margin-bottom: 20px;
+					}
+				}
+
+				.modal-body {
+					.col-4, .col-6 {
+						text-align: center;
+					}
+				}
+			}
+		}
+	}
+}
+
+
+html, body, .container {
+	height: 100%;
+	width: 100%;	
+}
+
+img {
+	width: 250px;
+	margin-bottom: 10px;
+}
+
+.c-color {
+	background: #283593;
+}
+
+.css-color {
+	background: #1572B6;
+}
+
+.html-color {
+	background: #E34F26;
+}
+
+.js-color {
+	background: #DAB92D;
+}
+
+.sql-color {
+	background: #0F3674;
+}
+
+.c-color, .css-color, .html-color, .js-color, .sql-color {
+	color: white;
+}
+
+

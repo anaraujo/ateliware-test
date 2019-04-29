@@ -1,0 +1,31 @@
+<% include ./partials/header %>
+
+	<div class="container">
+		<header class="jumbotron">
+			<div class="container">
+				<h1>Welcome to Git Repositories!</h1>
+				<p>View some of the repositories here</p>
+			</div>	
+		</header>
+
+		<div class="row" style="display: flex; flex-wrap: wrap;">
+			<% repositories.forEach(function(repository) { %>
+				<div class="col-md-3 col-sm-6">
+					<div class="card" style="">
+						<div class="card-body">
+							<img src="/images/<%= repository.language %>.png" class="card-img-top">
+						    <h5 class="card-title"><%= repository.name %></h5>
+						    <h6 class="card-subtitle mb-2 text-muted"><%= repository.author %></h6>
+						    <p class="card-text"><%= repository.language %></p>
+						    <a href="<%= repository.url %>" class="btn btn-dark">Repository</a>
+						    <a href="#" class="btn btn-dark">Details</a>
+						 </div>
+					</div>
+				</div>	
+			<% }); %>
+		</div>	  
+	</div>	
+
+<% include ./partials/footer %>
+
+<!--#C17A88-->

@@ -1,0 +1,42 @@
+html body .container .row {
+  bottom: 0;
+  margin-top: 20px; }
+  html body .container .row .square-parent {
+    text-align: center; }
+    html body .container .row .square-parent .square {
+      display: inline-block;
+      height: 250px;
+      max-height: 250px;
+      width: 250px;
+      max-width: 250px;
+      margin-bottom: 20px; }
+  html body .container .row .modal-body .col-4, html body .container .row .modal-body .col-6 {
+    text-align: center; }
+
+html, body, .container {
+  height: 100%;
+  width: 100%; }
+
+img {
+  width: 250px;
+  margin-bottom: 10px; }
+
+.c-color {
+  background: #283593; }
+
+.css-color {
+  background: #1572B6; }
+
+.html-color {
+  background: #E34F26; }
+
+.js-color {
+  background: #DAB92D; }
+
+.sql-color {
+  background: #0F3674; }
+
+.c-color, .css-color, .html-color, .js-color, .sql-color {
+  color: white; }
+
+/*# sourceMappingURL=main.css.map */

@@ -129,6 +129,4 @@ app.get("/all-repositories", function(req, res) {
 	res.render("all-repositories", {repositories:repositories});
 });
 
-app.listen(PORT, process.env.IP, function() {
-	console.log("The server has started!")
-});
+app.listen(process.env.PORT || port);

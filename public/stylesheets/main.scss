@@ -42,9 +42,13 @@ html {
 		.container { 
 			text-align: center;
 
-			#square-row { margin: 0 auto; }
+			.row .card { 
+				margin-bottom: 15px; 
 
-			.row .card { margin-bottom: 15px; }
+				.modal {
+					text-align: left;
+				}
+			}
 		}
 	}
 }

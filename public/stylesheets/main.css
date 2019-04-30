@@ -31,10 +31,10 @@ html body .landing .row {
         opacity: 0; }
 html body .container {
   text-align: center; }
-  html body .container #square-row {
-    margin: 0 auto; }
   html body .container .row .card {
     margin-bottom: 15px; }
+    html body .container .row .card .modal {
+      text-align: left; }
 
 html, body, .container {
   height: 100%;

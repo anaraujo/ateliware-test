@@ -1,5 +1,7 @@
 html body .btn-outline-dark {
   margin: 19px auto; }
+html body .modal-body {
+  text-align: left; }
 html body .landing .row {
   max-width: 960px; }
   html body .landing .row .square-column {
@@ -33,8 +35,6 @@ html body .container {
   text-align: center; }
   html body .container .row .card {
     margin-bottom: 15px; }
-    html body .container .row .card .modal {
-      text-align: left; }
 
 html, body, .container {
   height: 100%;

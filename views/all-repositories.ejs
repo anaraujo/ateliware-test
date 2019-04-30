@@ -40,43 +40,44 @@
 															<%= repository.description %>
 														</p>
 													</div>	
-													<div class="col-12">
+												</div>
+												<div class="row">	
+													<div class="col-6">
 														<p>
 															<b>Author:</b>
 															<%= repository.author %>
 														</p>
-													</div>	
-													<div class="col-12">
+													</div>
+													<div class="col-6">			
 														<p>
 															<b>Language:</b>
 															<%= repository.language %>
 														</p>
-													</div>	
-													<div class="col-12">	
+													</div>
+													<div class="col-6">
 														<p>
 															<b>Size:</b>
 															<%= repository.size %>
 														</p>
-													</div>
-												</div>			
-												<div class="row">
-													<div class="col-4">
+													</div>	
+													<div class="col-6">
 														<p>
-															<%= repository.forks %> forks
+															<b>Forks:</b>
+															<%= repository.forks %>
 														</p>
 													</div>	
-													<div class="col-4">
+													<div class="col-6">
 														<p>
-															<%= repository.issues %> issues
+															<b>Issues:</b>
+															<%= repository.issues %>
 														</p>
 													</div>	
-													<div class="col-4">
+													<div class="col-6">
 														<p>
-															<%= repository.watchers %> watchers
+															<b>Watchers:</b>
+															<%= repository.watchers %>
 														</p>
 													</div>
-												</div>	
-												<div class="row">
 													<div class="col-6">
 														<p>
 															<b>Created:</b>
@@ -87,10 +88,9 @@
 														<p>
 															<b>Updated:</b>
 															<%= repository.updated.slice(0,10) %>
-
 														</p>
 													</div>
-												</div>		
+												</div>	
 											</div>
 											<div class="modal-footer justify-content-start">
 												<a href="<%= repository.url %>" class="btn btn-secondary btn-lg active" role="button" aria-pressed="true">Go to the repository</a>
@@ -107,5 +107,3 @@
 	</div>	
 
 <% include ./partials/footer %>
-
-<!--#C17A88-->

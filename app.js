@@ -1,16 +1,14 @@
 // rodando locamente:
 
-// const PORT = process.env.PORT || 3000 
+const PORT = process.env.PORT || 3000 
 
 var express = require("express");
 var app = express();
-// app.use(express.static('public'));
 app.use(express.static(__dirname +'/public'));
 
-
 var bodyParser = require("body-parser");
-var mysql = require("mysql");
 
+var mysql = require("mysql");
 const pool = mysql.createPool({
 	host     : 'us-cdbr-iron-east-02.cleardb.net',
  	user     : 'b378125f6df212', 
@@ -21,50 +19,46 @@ const pool = mysql.createPool({
 var request = require('request');
 var languages = ['C', 'Javascript', 'CSS', 'HTML', 'SQL'];
 
-// function getAPI(language) {
-// 	var options = {
-// 	  url: 'https://api.github.com/search/repositories?sort=stars&order=desc&q=language:'+language,
-// 	  headers: {
-// 	    'User-Agent': 'Git Repositories'
-// 	  }
-// 	};
+function getAPI(language) {
+	var options = {
+	  url: 'https://api.github.com/search/repositories?sort=stars&order=desc&q=language:'+language,
+	  headers: {
+	    'User-Agent': 'Git Repositories'
+	  }
+	};
 	 
-// 	function callback(error, response, body) {
-// 		if (!error && response.statusCode == 200) {
-// 		    var info = JSON.parse(body);
-// 		    info.items.forEach(function(item) {
-// 		    	if (item.description != null) {
-// 		    		item.description = item.description.replace(/'/g, "").replace(/[^\x00-\x7F]/g, "");
-// 		    	}
-// 		    	var s = 'INSERT INTO repositories(name, url, author, description, created, updated, size, language, forks, issues, watchers) VALUES (\''
-// 		    			+item.name+'\',\''
-// 		    			+item.svn_url+'\',\''
-// 		    			+item.owner.login+'\',\''
-// 		    			+item.description+'\',\''
-// 		    			+item.created_at+'\',\''
-// 		    			+item.updated_at+'\','
-// 		    			+item.size+',\''
-// 		    			+item.language+'\','
-// 		    			+item.forks+','
-// 		    			+item.open_issues+','
-// 		    			+item.watchers+')';
-// 				connection.query(s, function (error, results, fields) {
-// 					if (error){
-// 						console.log(s);
-// 						throw error;
+	function callback(error, response, body) {
+		if (!error && response.statusCode == 200) {
+		    var info = JSON.parse(body);
+		    info.items.forEach(function(item) {
+		    	if (item.description != null) {
+		    		item.description = item.description.replace(/'/g, "").replace(/[^\x00-\x7F]/g, "");
+		    	}
+		    	var s = 'INSERT INTO repositories(name, url, author, description, created, updated, size, language, forks, issues, watchers) VALUES (\''
+		    			+item.name+'\',\''
+		    			+item.svn_url+'\',\''
+		    			+item.owner.login+'\',\''
+		    			+item.description+'\',\''
+		    			+item.created_at+'\',\''
+		    			+item.updated_at+'\','
+		    			+item.size+',\''
+		    			+item.language+'\','
+		    			+item.forks+','
+		    			+item.open_issues+','
+		    			+item.watchers+')';
+				pool.query(s, function (error, results, fields) {
+					if (error){
+						console.log(error);
+						throw error;
 						
-// 					} 
-// 				});
-// 			});
-// 		}		
-// 	};
+					} 
+				});
+			});
+		}		
+	};
 
-// 	request(options, callback);
-// };
-
-// languages.forEach(function(language) {
-// 	getAPI(language);
-// });
+	request(options, callback);
+};
 
 var repositories = []
 
@@ -98,7 +92,6 @@ pool.query(p, function (error, results, fields) {
 									issues: issues,
 									watchers: watchers
 								};
-		 	
 			repositories.push(newRepository);
 		}	
 	});	
@@ -135,14 +128,27 @@ app.get("/all-repositories", function(req, res) {
 	res.render("all-repositories", {repositories:repositories});
 });
 
+app.get("/sync", function(req, res) {
+	var r = 'DELETE FROM repositories';
+	pool.query(r, function (error, results, fields) {
+		if (error) {
+			console.log(error);
+			throw error;
+		}
+		languages.forEach(function(language) {
+			getAPI(language);
+		});
+		res.redirect("/");
+	});
+});
 
 // rodando localmente:
 
-// app.listen(PORT, process.env.IP, function() {
-// 	console.log("The server has started!")
-// });
+app.listen(PORT, process.env.IP, function() {
+	console.log("The server has started!")
+});
 
 
 // rodando com heroku:
 
-app.listen(process.env.PORT, process.env.IP);
+//app.listen(process.env.PORT, process.env.IP);

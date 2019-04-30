@@ -1,10 +1,12 @@
 // rodando locamente:
 
-//const PORT = process.env.PORT || 3000 
+// const PORT = process.env.PORT || 3000 
 
 var express = require("express");
 var app = express();
-app.use(express.static('public'));
+// app.use(express.static('public'));
+app.use(express.static(__dirname +'/public'));
+
 
 var bodyParser = require("body-parser");
 var mysql = require("mysql");

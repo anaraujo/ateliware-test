@@ -4,6 +4,8 @@ html body {
     margin: 19px auto; }
   html body .modal-body {
     text-align: left; }
+  html body .container .row .card {
+    margin-bottom: 15px; }
   html body .landing .row {
     max-width: 960px; }
     html body .landing .row .square-column {
@@ -33,8 +35,6 @@ html body {
           background-color: black; }
         html body .landing .row .square-column .square:hover .hover-shadow {
           opacity: 0; }
-  html body .container .row .card {
-    margin-bottom: 15px; }
 
 html, body, .container {
   height: 100%;

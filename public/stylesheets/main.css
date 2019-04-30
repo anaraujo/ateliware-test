@@ -4,10 +4,13 @@ html body {
     margin: 19px auto; }
   html body .modal-body {
     text-align: left; }
+  html body .container .jumbotron {
+    text-align: left; }
   html body .container .row .card {
     margin-bottom: 15px; }
   html body .landing .row {
-    max-width: 960px; }
+    max-width: 960px;
+    margin: 0 auto; }
     html body .landing .row .square-column {
       position: relative;
       display: inline-block;

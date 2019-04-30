@@ -1,3 +1,5 @@
+//const PORT = process.env.PORT || 3000 // rodando localmente
+
 var express = require("express");
 var app = express();
 app.use(express.static('public'));
@@ -6,10 +8,10 @@ var bodyParser = require("body-parser");
 var mysql = require("mysql");
 
 var connection = mysql.createConnection({
-	host     : 'localhost',
-	user     : 'root', 
-	password : 'password',
-	database : 'git'
+	host     : 'us-cdbr-iron-east-02.cleardb.net',
+	user     : 'b378125f6df212', 
+	password : '839590b1',
+	database : 'heroku_f7a5f1263deb888'
 });
 
 var request = require('request');
@@ -129,4 +131,13 @@ app.get("/all-repositories", function(req, res) {
 	res.render("all-repositories", {repositories:repositories});
 });
 
+
+// rodando localmente:
+
+// app.listen(PORT, process.env.IP, function() {
+// 	console.log("The server has started!")
+// });
+
+
+// rodando com heroku:
 app.listen(process.env.PORT, process.env.IP);

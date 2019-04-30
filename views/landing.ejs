@@ -1,15 +1,15 @@
 <% include ./partials/header %>
 
 <div class="container">
-	<div class="row">
+	<div class="row" id="square-row">
 		<% languages.forEach(function(language) { %>
-			<div class="square-parent col-lg-4 col-md-6">
+			<div class="col-lg-4 col-md-6" id="square-column">
 				<a href="<%= language %>" class="square">
 					<img src="/images/<%= language %>.png">
 				</a>
 			</div>	
 		<% }); %>
-		<div class="square-parent col-lg-4 col-md-6">
+		<div class="col-lg-4 col-md-6" id="square-column">
 			<a href="/all-repositories" class="square">
 				<img src="/images/git.png">
 			</a>

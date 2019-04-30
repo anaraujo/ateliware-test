@@ -1,27 +1,38 @@
-html body .container .square-row {
-  bottom: 0;
-  margin-top: 20px; }
-  html body .container .square-row .square-col {
-    text-align: center;
-    height: 100%; }
-    html body .container .square-row .square-col .square {
+html body .container {
+  margin: 49px auto; }
+  html body .container #square-row {
+    margin: 0 auto; }
+  html body .container .row {
+    max-width: 960px; }
+    html body .container .row #square-column {
+      position: relative;
       display: inline-block;
-      height: 100%;
-      width: 250px;
-      max-width: 250px;
-      margin-bottom: 20px; }
-  html body .container .square-row .card {
-    margin-bottom: 15px; }
-  html body .container .square-row .modal-body .col-4, html body .container .square-row .modal-body .col-6 {
-    text-align: center; }
+      text-align: center;
+      width: 300px;
+      line-height: 300px;
+      margin-bottom: 19px;
+      padding: 0; }
+      html body .container .row #square-column .square {
+        display: inline-block;
+        margin: auto;
+        height: 100%;
+        width: 300px;
+        background-image: url(https://lh3.googleusercontent.com/_CiAxSunVxIiZhxf26_cD00vc2-xQdkm5yZcG8ab3bGrFYNtgGOKhKrQbDDiih6Om9Mieqd5upEPYjjjrAqnNDbOBs9naEksNCIHcORjEPR5qjXIs2N7CmQz8r_hbtrAO55J0U3hffAkM6b8Lgq7VOrGt1yA095ZdpWA3GDbPyxvxgYKjrd05jzTEcRX5haf1hpdwhItmi2EfL2cTN4sJIamRGQ62702Ss_pyFc5WP7fTCzGNXWx_1ZK33kCLXk6GPgjJhzIq5P6JZ7x3on25WA8V7y7HC72frcpTooJprRRb1MyMKcGStpvl7_B0AW4flbN4Lj-iWMJ3lTSIOSXAv58zPO1FE-ypJTuMAROJh_Jm7qiUCx87I4bF0Rpwti1YRDaLtmDBmRPkKXEzeaVnGXPUxi0TZyWjtydsR39MxpehrGn5KqbGHqA_LOJzUVz_hQqgWCTAitsAjfGDIzrS1U7HdLAU6Ot5j8HiWiNB7V6yvKg6vmhxLYUXKNX5Sp4MDJzyIOHY87jO55QZrEhTqtAloA86illU0H_91sA0A-pn7SrZcqXCiNSIdeO5dXM15iw56Mn6oI4Fx2Q6eQ78q5CENoM-I55QQM2yrf1kKf92uTEyJIUQURoxpKCvDqM27ey4x3TEKqolveTrF8wNIRKvhxAZnfT=s655-no) !important;
+        background-size: cover;
+        opacity: 0;
+        transition: .5s ease;
+        background-color: black; }
+    html body .container .row .card {
+      margin-bottom: 15px; }
+    html body .container .row .modal-body .col-4, html body .container .row .modal-body .col-6 {
+      text-align: center; }
 
 html, body, .container {
   height: 100%;
   width: 100%; }
 
 img {
-  width: 250px;
-  margin-bottom: 10px; }
+  width: 250px; }
 
 .c-color {
   background: #283593; }

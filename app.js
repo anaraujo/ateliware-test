@@ -1,4 +1,6 @@
-//const PORT = process.env.PORT || 3000 // rodando localmente
+// rodando locamente:
+
+//const PORT = process.env.PORT || 3000 
 
 var express = require("express");
 var app = express();
@@ -7,9 +9,9 @@ app.use(express.static('public'));
 var bodyParser = require("body-parser");
 var mysql = require("mysql");
 
-var connection = mysql.createConnection({
+const pool = mysql.createPool({
 	host     : 'us-cdbr-iron-east-02.cleardb.net',
-	user     : 'b378125f6df212', 
+ 	user     : 'b378125f6df212', 
 	password : '839590b1',
 	database : 'heroku_f7a5f1263deb888'
 });
@@ -65,10 +67,10 @@ var languages = ['C', 'Javascript', 'CSS', 'HTML', 'SQL'];
 var repositories = []
 
 var p = 'SELECT COUNT(*) as tot FROM (SELECT name AS name, url AS url, author AS author, description AS description, created AS created, updated AS updated, size AS size, language AS language, forks AS forks, issues AS issues, watchers AS watchers FROM repositories) AS total';
-connection.query(p, function (error, results, fields) {
+pool.query(p, function (error, results, fields) { 
 	var total = results[0].tot;
 	var q = 'SELECT name AS name, url AS url, author AS author, description AS description, created AS created, updated AS updated, size AS size, language AS language, forks AS forks, issues AS issues, watchers AS watchers FROM repositories ORDER BY name';
-	connection.query(q, function (error, results, fields) {
+	pool.query(q, function (error, results, fields) { 
 		if (error) throw error;
 		for (var i = 0; i < total; i++) {
 			var name = results[i].name;
@@ -98,7 +100,7 @@ connection.query(p, function (error, results, fields) {
 			repositories.push(newRepository);
 		}	
 	});	
-});	
+});
 
 app.use(bodyParser.urlencoded({extended: true}));
 app.set("view engine", "ejs");
@@ -140,4 +142,5 @@ app.get("/all-repositories", function(req, res) {
 
 
 // rodando com heroku:
+
 app.listen(process.env.PORT, process.env.IP);

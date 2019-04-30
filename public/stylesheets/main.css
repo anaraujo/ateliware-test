@@ -1,40 +1,40 @@
-html body .btn-outline-dark {
-  margin: 19px auto; }
-html body .landing .row {
-  max-width: 960px; }
-  html body .landing .row .square-column {
-    position: relative;
-    display: inline-block;
-    text-align: center;
-    width: 300px;
-    line-height: 300px;
-    margin-bottom: 19px;
-    padding: 0; }
-    html body .landing .row .square-column .square {
-      display: inline-block;
-      margin: auto;
-      height: 100%;
-      width: 300px;
-      background-image: url(/images/bg.jpg);
-      background-size: cover;
-      text-align: center; }
-      html body .landing .row .square-column .square .hover-shadow {
-        display: inline-block;
-        position: absolute;
-        left: 10px;
-        height: 300px;
-        width: 300px;
-        opacity: 0.7;
-        transition: .5s ease;
-        background-color: black; }
-      html body .landing .row .square-column .square:hover .hover-shadow {
-        opacity: 0; }
-html body .container {
+html body {
   text-align: center; }
+  html body .btn-outline-dark {
+    margin: 19px auto; }
+  html body .modal-body {
+    text-align: left; }
+  html body .landing .row {
+    max-width: 960px; }
+    html body .landing .row .square-column {
+      position: relative;
+      display: inline-block;
+      text-align: center;
+      width: 300px;
+      line-height: 300px;
+      margin-bottom: 19px;
+      padding: 0; }
+      html body .landing .row .square-column .square {
+        display: inline-block;
+        margin: auto;
+        height: 100%;
+        width: 300px;
+        background-image: url(/images/bg.jpg);
+        background-size: cover;
+        text-align: center; }
+        html body .landing .row .square-column .square .hover-shadow {
+          display: inline-block;
+          position: absolute;
+          left: 10px;
+          height: 300px;
+          width: 300px;
+          opacity: 0.7;
+          transition: .5s ease;
+          background-color: black; }
+        html body .landing .row .square-column .square:hover .hover-shadow {
+          opacity: 0; }
   html body .container .row .card {
     margin-bottom: 15px; }
-    html body .container .row .card .modal {
-      text-align: left; }
 
 html, body, .container {
   height: 100%;

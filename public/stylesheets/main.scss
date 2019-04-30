@@ -1,6 +1,9 @@
 html {
 	body {
+		text-align: center;
+		
 		.btn-outline-dark { margin: 19px auto; }
+		.modal-body { text-align: left; }
 
 		.landing .row {
 			max-width: 960px;
@@ -40,15 +43,7 @@ html {
 		}
 
 		.container { 
-			text-align: center;
-
-			.row .card { 
-				margin-bottom: 15px; 
-
-				.modal {
-					text-align: left;
-				}
-			}
+			.row .card { margin-bottom: 15px; }
 		}
 	}
 }

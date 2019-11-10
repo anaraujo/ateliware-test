@@ -1,4 +1,4 @@
-# ateliware-test
+# Github's starred repositories
 
 Application that connects with Github's API and displays the starred repositories for the following languages: C, CSS, HTML, Javascript and SQL. 
 

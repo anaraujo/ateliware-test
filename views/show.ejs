@@ -1,18 +1,26 @@
-<% include ./partials/header %>
+<% include partials/header %>
 
-	<div class="container">
-		<header class="jumbotron sql-color">
-			<div class="container">
-				<h1>Git Repositories | SQL</h1>
+	<div class="show-container container">
+		<header class="jumbotron <%= language.toLowerCase() %>-color">
+			<h1>
+				Git Repositories
+				<% if (language != 'all') { %>
+					| <%= language %>
+				<% } %>
+			</h1>
+			<% if (language == 'all') { %>
+				<p>Starred repositories for all five languages</p>
+			<% } else { %>
 				<p>Starred repositories for this language</p>
-				<a class="btn btn-light btn-lg" href="/" role="button">Back to Home</a>
-			</div>	
+			<% } %>
+			<a class="btn btn-light btn-lg" href="/" role="button">Back to Home</a>
 		</header>
 
 		<div class="row">
 			<% repositories.forEach(function(repository, i) { %>
-				<% if (JSON.stringify(repository.language) == JSON.stringify('SQL')) { %>
-					<div class="col-md-3 col-sm-6 d-flex flex-wrap">
+				<% if ((language == 'all' && JSON.stringify(repository.language) != JSON.stringify('null')) || 
+							(JSON.stringify(repository.language) == JSON.stringify(language))) { %>
+					<div class="col-lg-3 col-md-4 col-sm-6 d-flex flex-wrap">
 						<div class="card">
 							<div class="card-body">
 								<img src="/images/<%= repository.language.toLowerCase() %>.png" class="card-img-top">
@@ -22,7 +30,6 @@
 									Details
 								</button>
 
-								<!-- Modal -->
 								<div class="modal fade" id="modalDetails<%= i %>" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
 									<div class="modal-dialog modal-dialog-centered" role="document">
 										<div class="modal-content">
@@ -106,6 +113,4 @@
 		</div>	  
 	</div>	
 
-<% include ./partials/footer %>
-
-<!--#C17A88-->
+<% include partials/footer %>

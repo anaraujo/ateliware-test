@@ -1,23 +1,17 @@
-<% include ./partials/header %>
+<% include partials/header %>
 
-<div class="container landing">
+<div class="landing-container container">
 	<a class="btn btn-outline-dark" href="/sync" role="button">sync with API</a>
 	<div class="row" id="square-row">
 		<% languages.forEach(function(language) { %>
 			<div class="square-column col-lg-4 col-md-6">
-				<a href="<%= language %>" class="square hover-shadow">
+				<a href="<%= language %>" class="square">
 					<div class="hover-shadow"></div>	
 					<img src="/images/<%= language.toLowerCase() %>.png">
 				</a>
 			</div>	
 		<% }); %>
-		<div class="square-column col-lg-4 col-md-6">
-			<a href="/all-repositories" class="square">
-				<div class="hover-shadow"></div>	
-				<img src="/images/git.png">
-			</a>
-		</div>	
 	</div>
 </div>	  
 
-<% include ./partials/footer %>
+<% include partials/footer %>

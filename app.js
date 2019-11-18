@@ -1,5 +1,3 @@
-// rodando locamente:
-
 const PORT = process.env.PORT || 3000 
 
 var express = require("express");
@@ -17,11 +15,12 @@ const pool = mysql.createPool({
 });
 
 var request = require('request');
-var languages = ['C', 'Javascript', 'CSS', 'HTML', 'SQL'];
+var languages = ['C', 'JavaScript', 'CSS', 'HTML', 'SQL', 'all'];
+var currentLanguage;
 
 function getAPI(language) {
 	var options = {
-	  url: 'https://api.github.com/search/repositories?sort=stars&order=desc&q=language:'+language,
+	  url: 'https://api.github.com/search/repositories?sort=stars&order=desc&q=language:' + language,
 	  headers: {
 	    'User-Agent': 'Git Repositories'
 	  }
@@ -100,32 +99,14 @@ pool.query(p, function (error, results, fields) {
 app.use(bodyParser.urlencoded({extended: true}));
 app.set("view engine", "ejs");
 
+languages.forEach(function(language) {
+	app.get("/" + language.toLowerCase(), function(req, res) {
+		res.render("show", {language: language, repositories:repositories});
+	});
+});
+
 app.get("/", function (req, res){
 	res.render("landing", {languages:languages});
-});
-
-app.get("/c", function(req, res) {
-	res.render("c", {repositories:repositories});
-});
-
-app.get("/javascript", function(req, res) {
-	res.render("javascript", {repositories:repositories});
-});
-
-app.get("/css", function(req, res) {
-	res.render("css", {repositories:repositories});
-});
-
-app.get("/html", function(req, res) {
-	res.render("html", {repositories:repositories});
-});
-
-app.get("/sql", function(req, res) {
-	res.render("sql", {repositories:repositories});
-});
-
-app.get("/all-repositories", function(req, res) {
-	res.render("all-repositories", {repositories:repositories});
 });
 
 app.get("/sync", function(req, res) {
@@ -142,13 +123,4 @@ app.get("/sync", function(req, res) {
 	});
 });
 
-// rodando localmente:
-
-app.listen(PORT, process.env.IP, function() {
-	console.log("The server has started!")
-});
-
-
-// rodando com heroku:
-
-//app.listen(process.env.PORT, process.env.IP);
+app.listen(PORT, process.env.IP);

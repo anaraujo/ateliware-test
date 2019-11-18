@@ -1,72 +1,63 @@
-html {
-	body {
-		text-align: center;
-		
-		.btn-outline-dark { margin: 19px auto; }
-		.modal-body { text-align: left; }
-		
-		.container {
-			.jumbotron { text-align: left; }
+.container { 
+	text-align: center;
 
-			.row .card { margin-bottom: 15px; }
-		}
+	img { width: 250px; }
+}
 
-		.landing .row {
-			max-width: 960px;
-			margin: 0 auto;
+.landing-container {
+	.btn { margin: 19px auto; }
 
-			.square-column {
-				position: relative;
+	#square-row {
+		max-width: 960px;
+		margin: 0 auto;
+
+		.square-column {
+			line-height: 300px;
+			margin-bottom: 19px;
+
+			.square {
 				display: inline-block;
-				text-align: center;
-				width: 300px;
-				line-height: 300px;
-				margin-bottom: 19px;
-				padding: 0;
+				position: relative;
+				width: 100%;
+				background-image: url(/images/bg.jpg);
+				background-size: cover;
 
-				.square {
-					display: inline-block;
-					margin: auto;
+				.hover-shadow {
+					position: absolute;
 					height: 100%;
-					width: 300px;
-					background-image: url(/images/bg.jpg);
-					background-size: cover;
-					text-align: center;
-
-					.hover-shadow {
-						display: inline-block;
-						position: absolute;
-						left: 10px;
-						height: 300px;
-						width: 300px;
-						opacity: 0.7;
-						transition: .5s ease;
-						background-color: black;
-					}
-
-					&:hover .hover-shadow { opacity: 0; }
+					width: 100%;
+					opacity: 0.7;
+					transition: .5s ease;
+					background-color: black;
 				}
-			}	
-		}
+
+				&:hover .hover-shadow { opacity: 0; }
+			}
+		}	
+	}	
+}
+
+.show-container {
+	.c-color { background: #283593; }
+	.css-color { background: #1572B6; }
+	.html-color { background: #E34F26; }
+	.javascript-color { background: #DAB92D; }
+	.sql-color { background: #0F3674; }
+	.all-color { background: black; }
+
+	.jumbotron { 
+		color: white;
+		text-align: left; 
+	}
+
+	.card { 
+		margin-bottom: 15px;
+
+		.card-img-top { margin-bottom: 16px; }
+		.modal-body { text-align: left; }
 	}
 }
 
-html, body, .container {
-	height: 100%;
-	width: 100%;	
-}
 
-img { width: 250px; }
-
-.c-color { background: #283593; }
-.css-color { background: #1572B6; }
-.html-color { background: #E34F26; }
-.js-color { background: #DAB92D; }
-.sql-color { background: #0F3674; }
-.git-color { background: black; }
-
-.c-color, .css-color, .html-color, .js-color, .sql-color, .git-color {
-	color: white;
-}
 
 
